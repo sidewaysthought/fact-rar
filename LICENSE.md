@@ -1,6 +1,6 @@
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)
 
-Copyright © 2024 Catarino David Delgado
+Copyright © 2025 Catarino David Delgado
 
 You are free to:
 - Share — copy and redistribute the material in any medium or format
