@@ -130,7 +130,7 @@ If you use Fact-RAR in your project, publication, or tool, please cite it as:
 
 > Catarino David Delgado. *Fact-RAR: A Domain-Specific Language for Compressed Knowledge Representation in LLMs.* v1.0, 2025. [https://github.com/sidewaysthought/fact-rar](https://github.com/sidewaysthought/fact-rar)
 
-BibTeX (optional):
+### BibTeX
 
 ```bibtex
 @misc{factrar2025,
