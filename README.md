@@ -128,7 +128,7 @@ Ping the creator. Or better yet—try it, break it, and post what you learn.
 
 If you use Fact-RAR in your project, publication, or tool, please cite it as:
 
-> Catarino David Delgado. *Fact-RAR: A Domain-Specific Language for Compressed Knowledge Representation in LLMs.* v0.1, 2025. [https://github.com/sidewaysthought/fact-rar](https://github.com/sidewaysthought/fact-rar)
+> Catarino David Delgado. *Fact-RAR: A Domain-Specific Language for Compressed Knowledge Representation in LLMs.* v1.0, 2025. [https://github.com/sidewaysthought/fact-rar](https://github.com/sidewaysthought/fact-rar)
 
 BibTeX (optional):
 
@@ -137,6 +137,6 @@ BibTeX (optional):
   author = {Catarino David Delgado},
   title = {Fact-RAR: A Domain-Specific Language for Compressed Knowledge Representation in LLMs},
   year = {2025},
-  version = {0.1},
+  version = {1.0},
   url = {https://github.com/sidewaysthought/fact-rar}
 }
