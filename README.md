@@ -2,13 +2,13 @@
 
 A minimal, expressive, domain-specific language (DSL) designed for **ultra-dense knowledge encoding in LLM prompts**.
 
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ## What is this?
 
 Fact-RAR is a symbolic mini-language for writing declarative knowledge in an **LLM-friendly**, **token-efficient**, and **human-readable** format. (Some humans may find it tedious or dense.) It is a mini-language which was inspired by Japanese grammar, low-resource syntax, and programming idioms and syntax.
 
-## The idea
+## The Idea
 Give an LLM the specification, then ask it to encode your knowledge (such as an article, a syllabus, a technical standard, etc.) The LLM produces the "compressed knowledge" for use in a system prompt or a message.
 
 If you give another LLM the compressed knowledge, it will be able to answer questions from the blob. It isn't necessary to give the destination LLM the specification. (Exceptionally small LLMs may strugge, so you may need to give it the specification before decoding.)
@@ -115,7 +115,8 @@ The more eyes on the grammar, the sharper it gets.
 
 ## License
 
-[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — free to use, remix, and extend with attribution. No commercial or proprietary forks.
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) — commercial use allowed.  
+Forks, translations, and improvements must preserve this license. Attribution required.
 
 ## Questions?
 
