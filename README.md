@@ -41,7 +41,6 @@ Models **can infer the structure** from examples—even if they don’t know the
 | **Pronouns / anaphora**    | Avoid pronouns and aliases. Repeat noun or use synonym.                                                                                     | —                                                    |
 | **Word choice**            | Use the shortest unambiguous term from any language. Keep logical connectors (`if`, `and`, `or`) in English.                               | `心 break`                                            |
 | **Grouped expressions**    | Use `{ }` for multiple subjects<br>Use `[ ]` for multiple verbs or objects                                                                  | `{city, town} evacuate [people:[1e6], pets]`         |
-                                              |
 
 ## Example
 
@@ -117,8 +116,6 @@ The more eyes on the grammar, the sharper it gets.
 ## License
 
 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — free to use, remix, and extend with attribution. No commercial or proprietary forks.
-
----
 
 ## Questions?
 
