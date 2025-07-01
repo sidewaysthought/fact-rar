@@ -8,6 +8,8 @@ A minimal, expressive, domain-specific language (DSL) designed for **ultra-dense
 
 Fact-RAR is a symbolic mini-language for writing declarative knowledge in an **LLM-friendly**, **token-efficient**, and **human-readable** format. (Some humans may find it tedious or dense.) It is a mini-language which was inspired by Japanese grammar, low-resource syntax, and programming idioms and syntax.
 
+[Learn more about Fast-RAR on my blog.](https://www.sidewaysthought.net/ai/speaking-machine-a-language-to-communicate-facts-to-large-language-models/)
+
 ## The Idea
 Give an LLM the specification, then ask it to encode your knowledge (such as an article, a syllabus, a technical standard, etc.) The LLM produces the "compressed knowledge" for use in a system prompt or a message.
 
