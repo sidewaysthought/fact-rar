@@ -24,22 +24,24 @@ You can use it for:
 
 Models **can infer the structure** from examples—even if they don’t know the specification.
 
-## ✨ Core Specification (v 1.0)
+## Core Specification (v 1.0)
 
-| Element                      | Rule                                                                                                                         | Example                                         |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| **Sentence frame**           | One clause per line using **SVO**.                                                                                         | `tree cast shade`                               |
-| **Time markers**             | Default = present<br>Future: `+3d`, `+2h30m`<br>Exact past: `-2025-06-28T14:00-05`<br>Imperfect past: verb suffixed with `~` | `storm cross gulf +12h`                         |
-| **Negation**                 | Use `!` or `¬` before the verb.                                                                                              | `cat !eat fish`                                 |
-| **Modality / certainty**     | `?` = possible<br>`!` = certain/required<br>`!!` = urgent imperative                                                         | `crew evacuate!`                                |
-| **Relations / prepositions** | Turn prepositions into verbs.                                                                                                | `book locate shelf`                             |
-| **Attributes**               | Ordered: `[ ]`<br>Unordered: `{ }`                                                                                           | `tree [big, tall]`                              |
-| **Quantities**               | `×n` or `noun:n` for pure integers<br>`noun:[value unit]` for scalar/temporal values                                         | `soldier×5 march`<br>`forecast:[5d] unreliable` |
-| **Comparatives**             | Use `<`, `>`, `<=`, `>=`, `==`                                                                                               | `price_A < price_B`                             |
-| **Questions**                | Prefix line with `?`                                                                                                         | `? storm weaken`                                |
-| **Conditionals**             | Python-style conditionals                                                                                                    | `if flood risk_high: city warn!`                |
-| **Pronouns / anaphora**      | Avoid. Repeat noun or use synonym.                                                                                           | –                                               |
-| **Word choice**              | Use shortest unambiguous term from any language. Logical connectors (`if`, `and`, `or`) must remain in English.              | –                                               |
+| Element                    | Rule                                                                                                                                         | Example                                              |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
+| **Sentence frame**         | One clause per line using **S V O**.                                                                                                         | `tree cast shade`                                    |
+| **Time markers**           | Default = present<br>Future: `+3d`, `+2h30m`<br>Exact past: `-2025-06-28T14:00-05`<br>Imperfect: verb suffixed with `~`                     | `storm cross gulf +12h`                              |
+| **Negation**               | Prefix `!` or `¬` to verb.                                                                                                                   | `cat !eat fish`                                      |
+| **Modality / certainty**   | `?` = possible<br>`!` = certain/required<br>`!!` = urgent imperative                                                                         | `crew evacuate!`                                     |
+| **Relations / prepositions** | Use prepositions as verbs or verb phrases.                                                                                                | `book locate shelf`                                  |
+| **Attributes**             | Ordered: `[ ]`<br>Unordered: `{ }`                                                                                                          | `tree [big, tall]`                                   |
+| **Quantities**             | Integer: `×n` or `noun:n`<br>Value + unit: `noun:[value unit]`                                                                              | `soldier×5 march`<br>`forecast:[5d] unreliable`      |
+| **Comparatives**           | Use standard math ops: `<`, `>`, `<=`, `>=`, `==`                                                                                           | `price_A < price_B`                                  |
+| **Questions**              | Begin line with `?`                                                                                                                         | `? storm weaken`                                     |
+| **Conditionals**           | Python-style conditional logic                                                                                                              | `if flood risk_high: city warn!`                     |
+| **Pronouns / anaphora**    | Avoid pronouns and aliases. Repeat noun or use synonym.                                                                                     | —                                                    |
+| **Word choice**            | Use the shortest unambiguous term from any language. Keep logical connectors (`if`, `and`, `or`) in English.                               | `心 break`                                            |
+| **Grouped expressions**    | Use `{ }` for multiple subjects<br>Use `[ ]` for multiple verbs or objects                                                                  | `{city, town} evacuate [people:[1e6], pets]`         |
+                                              |
 
 ## Example
 
@@ -124,3 +126,20 @@ Ping the creator. Or better yet—try it, break it, and post what you learn.
 
 > "tree cast shade"
 > — A system prompt, compressed.
+
+## Citation
+
+If you use Fact-RAR in your project, publication, or tool, please cite it as:
+
+> Catarino David Delgado. *Fact-RAR: A Domain-Specific Language for Compressed Knowledge Representation in LLMs.* v0.1, 2025. [https://github.com/sidewaysthought/fact-rar](https://github.com/sidewaysthought/fact-rar)
+
+BibTeX (optional):
+
+```bibtex
+@misc{factrar2025,
+  author = {Catarino David Delgado},
+  title = {Fact-RAR: A Domain-Specific Language for Compressed Knowledge Representation in LLMs},
+  year = {2025},
+  version = {0.1},
+  url = {https://github.com/sidewaysthought/fact-rar}
+}
