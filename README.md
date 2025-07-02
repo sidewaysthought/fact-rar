@@ -14,9 +14,13 @@ Fact-RAR is a symbolic mini-language for writing declarative knowledge in an **L
 2. Tell your large language model (GPT-4o, DeepSeek, Copilot, Gemini 2.5 Flash, LLaMA 4, etc.) to compress the knowledge using the specification.
 3. After the LLM encodes your text, save it in a file, or paste it into another chat for use whenever you need it.
 
-### Copy-and-Paste Specification To Use in Prompts
+### Copy-and-Paste Specification To Use in Prompts (v 1.0.1)
 ```
 Sentence frame: S V O. One clause per line.
+Grouped expressions:
+  • Use { } to group subjects or conditionals
+  • Use [ ] to group verbs or objects
+  • Syntax matches Python literal structures
 Time markers:
   • Present = default
   • Future: +3d, +2h30m (suffix after verb)
@@ -39,9 +43,6 @@ Questions: prefix ? to line
 Conditionals: Python style → `if flood risk_high: city warn!`
 Pronouns: avoid. Repeat noun or use synonym.
 Word choice: use shortest unambiguous term from any language. Keep `if`, `and`, `or` in English.
-Grouped expressions:
-  • Multiple subjects: {city, town}
-  • Multiple verbs or verb-objects: [people:[1e6], pets]
 ```
 
 ## The Idea
@@ -60,7 +61,7 @@ You can use it for:
 
 Models **can infer the structure** from examples—even if they don’t know the specification.
 
-## Core Specification (v 1.0)
+## Core Specification (v 1.0.1)
 
 | Element                      | Rule                                                                                                                                               | Example                                         |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
