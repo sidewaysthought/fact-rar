@@ -98,10 +98,7 @@ This five-line block encodes:
 * An uncertain weakening trend
 
 ### Additional Examples.
-* [A part of Romeo and Juliet encoded by GPT-4o and decoded by DeepSeek-R1](https://github.com/sidewaysthought/fact-rar/blob/579efd1edafd5e78168e531158ff092f0631aa90/example-romei-and-juliet)
-
-### More Examples
-* [A passage of Romeo and Juliet encoded by GPT-4o and decoded by DeepSeek-R1](https://github.com/sidewaysthought/fact-rar/blob/579efd1edafd5e78168e531158ff092f0631aa90/example-romei-and-juliet.md)
+* [A part of Romeo and Juliet encoded by GPT-4o and decoded by DeepSeek-R1](https://github.com/sidewaysthought/fact-rar/blob/main/example-romei-and-juliet.md)
 
 ## Contributing
 
