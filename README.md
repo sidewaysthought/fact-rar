@@ -1,14 +1,48 @@
 # Fact-RAR
 
-A minimal, expressive, domain-specific language (DSL) designed for **ultra-dense knowledge encoding in LLM prompts**.
+Fact-RAR is a mini-language that compresses domain knowledge into fewer tokens (sometimes by 70% or more), making system prompts cheaper and more precise in large language models..
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ## What is this?
 
-Fact-RAR is a symbolic mini-language for writing declarative knowledge in an **LLM-friendly**, **token-efficient**, and **human-readable** format. (Some humans may find it tedious or dense.) It is a mini-language which was inspired by Japanese grammar, low-resource syntax, and programming idioms and syntax.
+Fact-RAR is a symbolic mini-language for writing declarative knowledge in an **LLM-friendly**, **token-efficient**, and **human-readable** format. (Some humans may find it tedious or dense.) It is inspired by Japanese grammar, low-resource syntax, and programming idioms.
 
-[Learn more about Fast-RAR on my blog.](https://www.sidewaysthought.net/ai/speaking-machine-a-language-to-communicate-facts-to-large-language-models/)
+## Getting Started
+
+1. Copy-and-paste the specification below into your large language model.
+2. Tell your large language model (GPT-4o, DeepSeek, Copilot, Gemini 2.5 Flash, LLaMA 4, etc.) to compress the knowledge using the specification.
+3. After the LLM encodes your text, save it in a file, or paste it into another chat for use whenever you need it.
+
+### Copy-and-Paste Specification To Use in Prompts
+```
+Sentence frame: S V O. One clause per line.
+Time markers:
+  • Present = default
+  • Future: +3d, +2h30m (suffix after verb)
+  • Exact past: -2025-06-28T14:00-05
+  • Imperfect: verb~
+Negation: prefix ! or ¬ to verb → `cat !eat fish`
+Modality:
+  • ? = possible
+  • ! = required/certain
+  • !! = urgent imperative
+Relations/prepositions: use as verb phrase → `book locate shelf`
+Attributes:
+  • Ordered: [ ]
+  • Unordered: { }
+Quantities:
+  • Integer: ×n or noun:n
+  • Value + unit: noun:[value unit]
+Comparatives: <, >, <=, >=, ==
+Questions: prefix ? to line
+Conditionals: Python style → `if flood risk_high: city warn!`
+Pronouns: avoid. Repeat noun or use synonym.
+Word choice: use shortest unambiguous term from any language. Keep `if`, `and`, `or` in English.
+Grouped expressions:
+  • Multiple subjects: {city, town}
+  • Multiple verbs or verb-objects: [people:[1e6], pets]
+```
 
 ## The Idea
 Give an LLM the specification, then ask it to encode your knowledge (such as an article, a syllabus, a technical standard, etc.) The LLM produces the "compressed knowledge" for use in a system prompt or a message.
@@ -62,51 +96,6 @@ This five-line block encodes:
 * A projected landfall time
 * An uncertain weakening trend
 
-## Copy-and-Paste Specification To Use in Prompts
-```
-Sentence frame: S V O. One clause per line.
-Time markers:
-  • Present = default
-  • Future: +3d, +2h30m (suffix after verb)
-  • Exact past: -2025-06-28T14:00-05
-  • Imperfect: verb~
-Negation: prefix ! or ¬ to verb → `cat !eat fish`
-Modality:
-  • ? = possible
-  • ! = required/certain
-  • !! = urgent imperative
-Relations/prepositions: use as verb phrase → `book locate shelf`
-Attributes:
-  • Ordered: [ ]
-  • Unordered: { }
-Quantities:
-  • Integer: ×n or noun:n
-  • Value + unit: noun:[value unit]
-Comparatives: <, >, <=, >=, ==
-Questions: prefix ? to line
-Conditionals: Python style → `if flood risk_high: city warn!`
-Pronouns: avoid. Repeat noun or use synonym.
-Word choice: use shortest unambiguous term from any language. Keep `if`, `and`, `or` in English.
-Grouped expressions:
-  • Multiple subjects: {city, town}
-  • Multiple verbs or verb-objects: [people:[1e6], pets]
-```
-
-## How to Use It
-
-### 1. **Manually**
-
-Write compressed knowledge yourself using the spec above. One line = one fact or rule.
-
-### 2. **With an LLM**
-
-While LLMs can learn the syntax through examples alone get the best results by giving it the specification. 
-
-Frontier models models like GPT-4o, Gemini 2.5 Falsh, and DeepSeek R1 can:
-
-* Parse this DSL
-* Unpack it into natural language
-* Perform reasoning with the encoded data
 
 ## Contributing
 
@@ -123,9 +112,6 @@ Forks, translations, and improvements must preserve this license. Attribution re
 ## Questions?
 
 Ping the creator. Or better yet—try it, break it, and post what you learn.
-
-> "tree cast shade"
-> — A system prompt, compressed.
 
 ## Citation
 
