@@ -100,6 +100,9 @@ This five-line block encodes:
 ### Additional Examples.
 * [A part of Romeo and Juliet encoded by GPT-4o and decoded by DeepSeek-R1](https://github.com/sidewaysthought/fact-rar/blob/579efd1edafd5e78168e531158ff092f0631aa90/example-romei-and-juliet)
 
+### More Examples
+* [A passage of Romeo and Juliet encoded by GPT-4o and decoded by DeepSeek-R1](https://github.com/sidewaysthought/fact-rar/blob/579efd1edafd5e78168e531158ff092f0631aa90/example-romei-and-juliet.md)
+
 ## Contributing
 
 Have a variant? Suggest a syntax tweak? Found a case where a model fumbles?
