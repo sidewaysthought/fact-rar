@@ -78,7 +78,9 @@ Models **can infer the structure** from examples—even if they don’t know the
 | **Word choice**            | Use the shortest unambiguous term from any language. Keep logical connectors (`if`, `and`, `or`) in English.                               | `心 break`                                            |
 | **Grouped expressions**    | Use `{ }` for multiple subjects<br>Use `[ ]` for multiple verbs or objects                                                                  | `{city, town} evacuate [people:[1e6], pets]`         |
 
-## Example
+## Examples
+
+### A Simple Example
 
 ```text
 storm form gulf [warm_water]
@@ -95,6 +97,10 @@ This five-line block encodes:
 * A population-level response
 * A projected landfall time
 * An uncertain weakening trend
+
+
+### More Examples
+* [A passage of Romeo and Juliet encoded by GPT-4o and decoded by DeepSeek-R1](https://github.com/sidewaysthought/fact-rar/blob/579efd1edafd5e78168e531158ff092f0631aa90/example-romei-and-juliet.md)
 
 
 ## Contributing
