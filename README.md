@@ -14,35 +14,28 @@ Fact-RAR is a symbolic mini-language for writing declarative knowledge in an **L
 2. Tell your large language model (GPT-4o, DeepSeek, Copilot, Gemini 2.5 Flash, LLaMA 4, etc.) to compress the knowledge using the specification.
 3. After the LLM encodes your text, save it in a file, or paste it into another chat for use whenever you need it.
 
-### Copy-and-Paste Specification To Use in Prompts (v 1.0.1)
+### Copy-and-Paste Specification To Use in Prompts (v 1.1)
 ```
-Sentence frame: S V O. One clause per line.
-Grouped expressions:
-  • Use { } to group subjects or conditionals
-  • Use [ ] to group verbs or objects
-  • Syntax matches Python literal structures
-Time markers:
-  • Present = default
-  • Future: +3d, +2h30m (suffix after verb)
-  • Exact past: -2025-06-28T14:00-05
-  • Imperfect: verb~
-Negation: prefix ! or ¬ to verb → `cat !eat fish`
-Modality:
-  • ? = possible
-  • ! = required/certain
-  • !! = urgent imperative
-Relations/prepositions: use as verb phrase → `book locate shelf`
-Attributes:
-  • Ordered: [ ]
-  • Unordered: { }
-Quantities:
-  • Integer: ×n or noun:n
-  • Value + unit: noun:[value unit]
-Comparatives: <, >, <=, >=, ==
-Questions: prefix ? to line
-Conditionals: Python style → `if flood risk_high: city warn!`
-Pronouns: avoid. Repeat noun or use synonym.
-Word choice: use shortest unambiguous term from any language. Keep `if`, `and`, `or` in English.
+Use the Fact-RAR specification to preserve information in a highly compressed format any LLM can understand.
+- Sentence frame: `S V O` (1 clause per line)
+- Word choice: shortest unambiguous term; keep `if`, `and`, `or` in English
+- Grouped expressions: `{}` = subjects/conditionals, `[]` = verbs/objects (Python literal syntax)
+  - Multiple statements: use `with` block  
+  - Multiple details of subject: same `with` usage
+- Pronouns: avoid; repeat noun or use synonym
+- Time:
+  - Present = default
+  - Future: `+3d`, `+2h30m`
+  - Exact past: `-2025-06-28T14:00-05`
+  - Imperfect: `verb~`
+- Negation: prefix `!` or `¬` → `cat !eat fish`
+- Modality: `?` = possible, `!` = required, `!!` = urgent
+- Relations: use as verb phrase → `book locate shelf`
+- Attributes: ordered `[ ]`, unordered `{ }`
+- Quantities: integer `×n` or `noun:n`, value+unit `noun:[value unit]`
+- Comparatives: `<`, `>`, `<=`, `>=`, `==`
+- Questions: prefix `?` → `?cat eat fish`
+- Conditionals: `if rain heavy: window close!`
 ```
 
 ## The Idea
@@ -61,23 +54,24 @@ You can use it for:
 
 Models **can infer the structure** from examples—even if they don’t know the specification.
 
-## Core Specification (v 1.0.1)
+## Core Specification (v 1.1)
 
 | Element                      | Rule                                                                                                                                               | Example                                         |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| **Sentence frame**           | One clause per line using **S V O**.                                                                                                               | `tree cast shade`                               |
-| **Grouped expressions**      | Use `{ }` for multiple **subjects** or **conditions**<br>Use `[ ]` for multiple **verbs** or **objects**<br>Groupings follow Python literal syntax | `{city, town} evacuate [people:[1e6], pets]`    |
-| **Time markers**             | Default = present<br>Future: `+3d`, `+2h30m`<br>Exact past: `-2025-06-28T14:00-05`<br>Imperfect: verb suffixed with `~`                            | `storm cross gulf +12h`                         |
-| **Negation**                 | Prefix `!` or `¬` to verb.                                                                                                                         | `cat !eat fish`                                 |
-| **Modality / certainty**     | `?` = possible<br>`!` = certain/required<br>`!!` = urgent imperative                                                                               | `crew evacuate!`                                |
-| **Relations / prepositions** | Use prepositions as verbs or verb phrases.                                                                                                         | `book locate shelf`                             |
-| **Attributes**               | Ordered: `[ ]`<br>Unordered: `{ }`                                                                                                                 | `tree [big, tall]`                              |
-| **Quantities**               | Integer: `×n` or `noun:n`<br>Value + unit: `noun:[value unit]`                                                                                     | `soldier×5 march`<br>`forecast:[5d] unreliable` |
-| **Comparatives**             | Use standard math ops: `<`, `>`, `<=`, `>=`, `==`                                                                                                  | `price_A < price_B`                             |
-| **Questions**                | Begin line with `?`                                                                                                                                | `? storm weaken`                                |
-| **Conditionals**             | Python-style conditional logic                                                                                                                     | `if flood risk_high: city warn!`                |
-| **Pronouns / anaphora**      | Avoid pronouns and aliases. Repeat noun or use synonym.                                                                                            | —                                               |
-| **Word choice**              | Use the shortest unambiguous term from any language. Keep logical connectors (`if`, `and`, `or`) in English.                                       | `心 break`                                       |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
+| **Sentence frame**           | One clause per line using `S V O`.                                                                                                                  | `tree cast shade`                               |
+| **Word choice**              | Use shortest unambiguous term from any language. Keep `if`, `and`, `or` in English.                                                                | `心 break`                                       |
+| **Grouped expressions**      | `{}` = multiple subjects or conditions<br>`[]` = multiple verbs or objects<br>Use Python literal syntax                                             | `{city, town} evacuate [people:[1e6], pets]`    |
+| **Multiple statements**      | Use Python `with` block to group multiple clauses about a subject or verb.                                                                          | `with tree:\n  drop leaves\n  cast shade`       |
+| **Pronouns / anaphora**      | Avoid pronouns. Repeat noun or use synonym.                                                                                                         | —                                               |
+| **Time markers**             | Present = default<br>Future: `+3d`, `+2h30m`<br>Exact past: `-2025-06-28T14:00-05`<br>Imperfect: suffix `~`                                          | `storm cross gulf +12h`                         |
+| **Negation**                 | Prefix `!` or `¬` to verb.                                                                                                                           | `cat !eat fish`                                 |
+| **Modality / certainty**     | `?` = possible<br>`!` = required<br>`!!` = urgent                                                                                                    | `crew evacuate!`                                |
+| **Relations / prepositions** | Use prepositions as verb phrases.                                                                                                                   | `book locate shelf`                             |
+| **Attributes**               | Ordered: `[ ]`<br>Unordered: `{ }`                                                                                                                  | `tree [big, tall]`                              |
+| **Quantities**               | Integer: `×n` or `noun:n`<br>Value + unit: `noun:[value unit]`                                                                                      | `soldier×5 march`<br>`forecast:[5d] unreliable` |
+| **Comparatives**             | Use math operators: `<`, `>`, `<=`, `>=`, `==`                                                                                                      | `price_A < price_B`                             |
+| **Questions**                | Prefix `?` to the line                                                                                                                               | `? storm weaken`                                |
+| **Conditionals**             | Use Python-style conditionals                                                                                                                       | `if flood risk_high: city warn!`                |
 
 ## Examples
 
