@@ -1,6 +1,6 @@
 # Fact-RAR
 
-Fact-RAR is a mini-language that compresses domain knowledge into fewer tokens (sometimes by 70% or more), making system prompts cheaper and more precise in large language models..
+Fact-RAR is a mini-language for semantic packing: it encodes domain knowledge into compact, model-readable statements so prompts carry more recoverable facts per token.
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
@@ -8,10 +8,21 @@ Fact-RAR is a mini-language that compresses domain knowledge into fewer tokens (
 
 Fact-RAR is a symbolic mini-language for writing declarative knowledge in an **LLM-friendly**, **token-efficient**, and **human-readable** format. (Some humans may find it tedious or dense.) It is inspired by Japanese grammar, low-resource syntax, and programming idioms.
 
+It is designed for **cross-model semantic transfer**: one model can encode structured meaning, and another model can usually decode the meaning even without seeing the full specification.
+
+## What Fact-RAR Is (and Is Not)
+
+- **Is:** a compact representation of propositions, relations, conditions, and constraints.
+- **Is:** a way to increase usable knowledge density in prompts.
+- **Is not:** one-to-one lexical or stylistic compression of source text.
+- **Is not:** guaranteed lossless reconstruction of exact phrasing.
+
+Primary optimization target: **recoverable meaning per token**, not verbatim text recovery.
+
 ## Getting Started
 
 1. Copy-and-paste the specification below into your large language model.
-2. Tell your large language model (GPT-4o, DeepSeek, Copilot, Gemini 2.5 Flash, LLaMA 4, etc.) to compress the knowledge using the specification.
+2. Tell your large language model (GPT-4o, DeepSeek, Copilot, Gemini 2.5 Flash, LLaMA 4, etc.) to encode the knowledge semantically using the specification.
 3. After the LLM encodes your text, save it in a file, or paste it into another chat for use whenever you need it.
 
 ### Copy-and-Paste Specification To Use in Prompts (v 1.1)
@@ -41,9 +52,9 @@ Use the Fact-RAR specification to preserve information in a highly compressed fo
 ## The Idea
 Give an LLM the specification, then ask it to encode your knowledge (such as an article, a syllabus, a technical standard, etc.) The LLM produces the "compressed knowledge" for use in a system prompt or a message.
 
-If you give another LLM the compressed knowledge, it will be able to answer questions from the blob. It isn't necessary to give the destination LLM the specification. (Exceptionally small LLMs may strugge, so you may need to give it the specification before decoding.)
+If you give another LLM the compressed knowledge, it will be able to answer questions from the blob. It isn't necessary to give the destination LLM the specification. (Exceptionally small LLMs may struggle, so you may need to give it the specification before decoding.)
 
-The purpose is not to preserve the input language. The purpose is to preserve the conveyed facts or knowledge. Encode world facts, logic rules, or situation models in fewer tokens without sacrificing clarity.
+The purpose is not to preserve the input wording. The purpose is to preserve conveyed facts and logic in a compact form. Encode world facts, rules, or situation models in fewer tokens while keeping downstream interpretation reliable.
 
 You can use it for:
 
