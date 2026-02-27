@@ -4,10 +4,10 @@
 Draft
 
 ## Motivation
-Fact-RAR is easy to prototype in prompts, but adoption increases when users can validate and normalize artifacts locally with repeatable tooling.
+Fact-RAR is easy to prototype in prompts, but adoption increases when humans can validate, compare, and trust artifacts locally with repeatable tooling.
 
 ## Goal
-Define a minimal reference tooling surface that keeps the language lightweight while making workflows deterministic.
+Define a minimal reference tooling surface that keeps the language lightweight while making workflows deterministic and understandable to human contributors.
 
 ## Non-goals
 - Not replacing LLM-based encoding.
@@ -17,12 +17,12 @@ Define a minimal reference tooling surface that keeps the language lightweight w
 ## Proposed CLI Commands
 
 ```bash
-factrar encode   # assistive encode pipeline (optional LLM adapter hooks)
-factrar decode   # expand to plain-language propositions
-factrar lint     # syntax + style checks
-factrar normalize# canonicalization profile output
-factrar diff     # semantic diff between two Fact-RAR files
-factrar stats    # token/proposition density metrics
+factrar encode    # assistive encode pipeline (optional LLM adapter hooks)
+factrar decode    # expand to plain-language propositions for human review
+factrar lint      # syntax + style checks with readable diagnostics
+factrar normalize # canonicalization profile output for consistency
+factrar diff      # semantic diff between two Fact-RAR files (change summary)
+factrar stats     # human-readable density/clarity metrics report
 ```
 
 ## Minimal I/O Contract
@@ -32,6 +32,11 @@ factrar stats    # token/proposition density metrics
   - `0` success
   - `1` lint/validation failures
   - `2` parser/runtime error
+
+## Human-First Output Defaults (Proposed)
+- Default output should be concise text/markdown that a non-implementer can read quickly.
+- Machine formats (JSON/AST) should be opt-in via `--format json`.
+- `factrar stats` should explain *why* a score changed (for example: more clauses, fewer ambiguities, improved consistency), not only print raw numbers.
 
 ## Initial Lint Rules (Draft)
 1. One clause per line unless in a `with` block.
@@ -48,4 +53,4 @@ factrar stats    # token/proposition density metrics
 ## Open Questions
 - Should semantic diff rely on normalized AST only?
 - Should `encode` be plugin-based to support multiple model providers?
-- Should benchmark output format be JSONL by default?
+- Should the default reporting profile prioritize human-readable markdown over JSONL?

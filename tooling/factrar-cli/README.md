@@ -14,9 +14,9 @@ factrar normalize knowledge.frar > knowledge.norm.frar
 # Compare semantic changes across revisions
 factrar diff old.frar new.frar --format md
 
-# Show density stats
+# Show density stats with readable explanations
 factrar stats knowledge.frar
 ```
 
 ## Design Principle
-Tooling should make Fact-RAR **easier to trust and automate**, without changing its primary role as a semantic-packing language for cross-model transfer.
+Tooling should make Fact-RAR **easier for humans to trust, review, and automate**, without changing its primary role as a semantic-packing language for cross-model transfer.
