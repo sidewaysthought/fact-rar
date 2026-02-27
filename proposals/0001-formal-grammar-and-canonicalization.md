@@ -4,7 +4,7 @@
 Draft
 
 ## Motivation
-Fact-RAR currently has a practical, readable spec, but not a formal grammar or canonical form. This makes independent implementations harder to keep compatible and makes deterministic tooling (linting, normalization, diffing) harder to build.
+Fact-RAR already has a practical, readable spec that works well for prompt-driven use. Adding a formal grammar and canonicalization profile would make independent implementations easier to align and would unlock more deterministic tooling (linting, normalization, diffing).
 
 ## Goal
 Define a machine-testable grammar and a canonicalization profile so two implementations can parse and normalize equivalent statements to the same output.
