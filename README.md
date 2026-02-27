@@ -95,6 +95,12 @@ This five-line block encodes:
 ### Additional Examples.
 * [A part of Romeo and Juliet encoded by GPT-4o and decoded by DeepSeek-R1](https://github.com/sidewaysthought/fact-rar/blob/main/example-romei-and-juliet.md)
 
+## Proposals
+
+Design proposals are tracked in `proposals/`.
+
+- [Proposal 0001: Formal Grammar + Canonicalization](./proposals/0001-formal-grammar-and-canonicalization.md)
+
 ## Contributing
 
 Have a variant? Suggest a syntax tweak? Found a case where a model fumbles?
